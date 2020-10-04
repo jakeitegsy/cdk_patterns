@@ -21,7 +21,7 @@ cdk bootstrap
 
 rm -rf simple_webservice/simple_webservice_stack.py
 WEBSERVICE=$(cat <<-END
-from aws_cdk.core import Construct, Stack, CfnOutput
+from aws_cdk.core import Construct, Stack, CfnOutput, RemovalPolicy
 from aws_cdk.aws_apigatewayv2 import HttpApi, LambdaProxyIntegration
 from aws_cdk.aws_dynamodb import Table, Attribute, AttributeType
 from aws_cdk.aws_lambda import Function, Code, Runtime
@@ -34,6 +34,7 @@ class SimpleWebService(Stack):
 
         self.hits_table = Table(
             self, "Hits",
+            removal_policy=RemovalPolicy.DESTROY,
             partition_key=Attribute(
                 name="path",
                 type=AttributeType.STRING,
@@ -70,12 +71,12 @@ import boto3
 import os
 dynamodb = boto3.client("dynamodb")
 
-def handler(context, event):
+def handler(event, context):
     dynamodb.update_item(
         TableName=os.environ["HITS_TABLE_NAME"],
         Key={"path": {"S": event["rawPath"]}},
-        UpdateExpression: "ADD hits :incr",
-        ExpressionAttributeValues: {":incr": {"N": "1"}},
+        UpdateExpression="ADD hits :incr",
+        ExpressionAttributeValues={":incr": {"N": "1"}},
     )
     print("inserted counter for ", event["rawPath"])
     return {
