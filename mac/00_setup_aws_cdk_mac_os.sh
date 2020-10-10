@@ -1,5 +1,6 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew install node
+curl "https://nodejs.org/dist/v12.19.0/node-v12.19.0.pkg" -o "node.pkg"
+sudo installer -pkg node.pkg
 npm install -g aws-cdk
 curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
 sudo installer -pkg AWSCLIV2.pkg -target /
