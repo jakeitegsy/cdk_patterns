@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 setup(name="SimpleWebService", packages=find_packages())
 END
 )
-printf "%s" "$APP" > setup.py
+printf "%s" "$SETUP" > setup.py
 pip3 install -e .
 pip3 install -r requirements.txt
 pip3 install aws_cdk.core aws_cdk.aws_lambda aws_cdk.aws_dynamodb aws_cdk.aws_apigatewayv2
