@@ -7,3 +7,4 @@ sudo installer -pkg AWSCLIV2.pkg -target /
 curl https://www.python.org/ftp/python/3.9.0/python-3.9.0-macosx10.9.pkg -o "python.pkg"
 sudo installer -pkg python.org -target /
 python3 -m ensurepip
+brew install entr
