@@ -1,17 +1,13 @@
-#Setup Environment
+#Setup Environment - nodejs installs latest python
 $nodeVersion = "v14.14.0"
 $nodePackage = "node-$nodeVersion-x64.msi"
 
 $awsCliPackage = "AWSCLIV2.msi"
 
-$pythonVersion = "3.9.0"
-$pythonPackage = "python-$pythonVersion-amd64.exe"
-
-
 $packages = @{
     "node.msi"="https://nodejs.org/dist/$nodeVersion/$nodePackage";
     $awsCliPackage="https://awscli.amazonaws.com/$awsCliPackage";
-    "python.exe"="https://www.python.org/ftp/python/$pythonVersion/$pythonPackage"
+    #"python.exe"="https://www.python.org/ftp/python/$pythonVersion/$pythonPackage"
 }
 
 $destination = "$Env:UserProfile\Downloads"
