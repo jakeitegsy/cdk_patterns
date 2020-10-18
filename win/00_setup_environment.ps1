@@ -7,7 +7,6 @@ $awsCliPackage = "AWSCLIV2.msi"
 $packages = @{
     "node.msi"="https://nodejs.org/dist/$nodeVersion/$nodePackage";
     $awsCliPackage="https://awscli.amazonaws.com/$awsCliPackage";
-    #"python.exe"="https://www.python.org/ftp/python/$pythonVersion/$pythonPackage"
 }
 
 $destination = "$Env:UserProfile\Downloads"
