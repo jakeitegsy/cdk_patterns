@@ -82,7 +82,7 @@ def handler(event, context):
     return {
         "statusCode": 200,
         "headers": {"Content-Type": "text/html"},
-        "body": "You have connected with the Lambda!"
+        "body": "You have connected with the Lambda"
     }
 END
 )
